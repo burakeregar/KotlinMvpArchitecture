@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.burakeregar.cleankotlinmvparchitecture"
+        minSdkVersion 13
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //Dagger2
+    compile "com.google.dagger:dagger:${daggerVersion}"
+    kapt "com.google.dagger:dagger-compiler:${daggerVersion}"
+    provided "org.glassfish:javax.annotation:${annotationVersion}"
+
+    //Squareup
+    compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+}
