@@ -1,4 +1,4 @@
-package com.burakeregar.cleankotlinmvparchitecture.base.di.module
+package com.base.di.module
 
 import android.app.Application
 import android.content.res.Resources
@@ -14,12 +14,7 @@ import com.google.gson.GsonBuilder
  * https://github.com/burakeregar
  */
 @Module
-class AppModule {
-    val application: Application
-
-    constructor(application: Application){
-        this.application = application
-    }
+class AppModule(val application: Application) {
 
     @Provides
     @Singleton

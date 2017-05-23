@@ -1,4 +1,4 @@
-package com.burakeregar.cleankotlinmvparchitecture
+package com.burakeregar.kotlinmvparchitecture
 
 import org.junit.Test
 

@@ -1,9 +1,11 @@
-package com.burakeregar.cleankotlinmvparchitecture.base
+package com.base
 
 import android.app.Application
-import com.burakeregar.cleankotlinmvparchitecture.base.di.component.AppComponent
-import com.burakeregar.cleankotlinmvparchitecture.base.di.component.DaggerAppComponent
-import com.burakeregar.cleankotlinmvparchitecture.base.di.module.AppModule
+import com.base.di.component.AppComponent
+import com.base.di.component.DaggerAppComponent
+import com.base.di.module.AppModule
+import com.facebook.drawee.backends.pipeline.Fresco
+
 
 /**
  * Created by Burak Eregar on 19.05.2017.
@@ -19,9 +21,11 @@ class App: Application() {
     override fun onCreate() {
         super.onCreate()
         initDagger()
+        Fresco.initialize(this);
     }
 
     private fun initDagger() {
         appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
     }
+
 }

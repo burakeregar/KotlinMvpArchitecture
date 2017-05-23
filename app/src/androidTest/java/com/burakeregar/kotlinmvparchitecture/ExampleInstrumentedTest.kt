@@ -1,4 +1,4 @@
-package com.burakeregar.cleankotlinmvparchitecture
+package com.burakeregar.kotlinmvparchitecture
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
