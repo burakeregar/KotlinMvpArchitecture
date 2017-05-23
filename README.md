@@ -10,7 +10,7 @@ If you start to develop new project, you can clone this repo to your computer. Y
 
 ![](https://github.com/burakeregar/KotlinMvpTemplateGenerator/blob/master/art/mvp_template.gif)
 
-# LICENSE
+### LICENSE
 
 MIT License
 
