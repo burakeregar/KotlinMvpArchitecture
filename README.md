@@ -5,6 +5,9 @@ This repo contains demo module which retrieves mars images from the NASA API. Th
 
 I have seperated activity dependencies/components from AppComponent to avoid conflicts. KotlinMvpTemplate generates all of required dependency classes, presenters etc. for each module automatically.
 
+# STARTING NEW PROJECT
+If you start to develop new project, you can clone this repo to your computer. You just need to rename packages. Now, you are ready! You can start developing your modules.
+
 ![](https://github.com/burakeregar/KotlinMvpTemplate/blob/master/art/mvp_template.gif)
 
 # LICENSE
