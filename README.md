@@ -8,7 +8,7 @@ I have seperated activity dependencies/components from AppComponent to avoid con
 ### STARTING NEW PROJECT
 If you start to develop new project, you can clone this repo to your computer. You just need to rename packages. Now, you are ready! You can start developing your modules.
 
-![](https://github.com/burakeregar/KotlinMvpTemplate/blob/master/art/mvp_template.gif)
+![](https://github.com/burakeregar/KotlinMvpTemplateGenerator/blob/master/art/mvp_template.gif)
 
 # LICENSE
 
