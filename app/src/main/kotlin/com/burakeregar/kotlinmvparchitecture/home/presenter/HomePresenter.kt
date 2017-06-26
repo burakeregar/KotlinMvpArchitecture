@@ -8,7 +8,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-
 class HomePresenter @Inject constructor(var api: Endpoints) : BasePresenter<HomeView>() {
 
     override fun attachView(view: HomeView) {

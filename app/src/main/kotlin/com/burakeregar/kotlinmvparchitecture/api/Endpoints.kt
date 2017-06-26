@@ -10,6 +10,6 @@ import retrofit2.http.GET
  * https://github.com/burakeregar
  */
 interface Endpoints {
-    @GET("mars-photos/api/v1/rovers/curiosity/photos?sol=50&page=5&api_key=DEMO_KEY")
+    @GET("rovers/curiosity/photos?sol=50&page=5&api_key=DEMO_KEY")
     fun getMarsPhotos(): Call<MarsPhotos>
 }

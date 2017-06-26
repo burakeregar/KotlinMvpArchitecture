@@ -15,6 +15,6 @@ import javax.inject.Singleton
 class RetrofitModule {
     @Provides
     @Singleton
-    fun providesRetrofit(): Retrofit = Retrofit.Builder().baseUrl("https://api.nasa.gov/")
+    fun providesRetrofit(): Retrofit = Retrofit.Builder().baseUrl("https://api.nasa.gov/mars-photos/api/v1/")
             .addConverterFactory(GsonConverterFactory.create()).build()
 }

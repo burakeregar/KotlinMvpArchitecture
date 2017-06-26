@@ -6,7 +6,6 @@ import com.base.di.component.DaggerAppComponent
 import com.base.di.module.AppModule
 import com.facebook.drawee.backends.pipeline.Fresco
 
-
 /**
  * Created by Burak Eregar on 19.05.2017.
  * burakeregar@gmail.com
@@ -21,7 +20,7 @@ class App: Application() {
     override fun onCreate() {
         super.onCreate()
         initDagger()
-        Fresco.initialize(this);
+        Fresco.initialize(this)
     }
 
     private fun initDagger() {

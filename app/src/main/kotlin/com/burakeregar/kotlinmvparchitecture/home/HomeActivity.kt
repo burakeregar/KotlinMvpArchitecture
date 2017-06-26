@@ -14,6 +14,8 @@ import com.burakeregar.kotlinmvparchitecture.home.viewholder.MarsViewHolder
 import com.burakeregar.easiestgenericrecycleradapter.base.GenericAdapterBuilder
 import com.burakeregar.easiestgenericrecycleradapter.base.GenericRecyclerAdapter
 import kotlinx.android.synthetic.main.home_activity.*
+import org.greenrobot.eventbus.Subscribe
+import org.jetbrains.anko.toast
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity(), HomeView {
@@ -32,18 +34,18 @@ class HomeActivity : BaseActivity(), HomeView {
     }
 
     private fun initAdapter() {
-        home_rv.setLayoutManager(LinearLayoutManager(this))
         adapter = GenericAdapterBuilder().addModel(
                 R.layout.row_mars,
                 MarsViewHolder::class.java,
                 MarsItem::class.java)
                 .execute()
-        home_rv.setAdapter(adapter)
+        home_rv.layoutManager = LinearLayoutManager(this)
+        home_rv.adapter = adapter
     }
 
     override fun onActivityInject() {
         DaggerHomeActivityComponent.builder().appComponent(getAppcomponent())
-                .homeActivityModule(HomeActivityModule(this))
+                .homeActivityModule(HomeActivityModule())
                 .build()
                 .inject(this)
 
@@ -52,5 +54,10 @@ class HomeActivity : BaseActivity(), HomeView {
 
     override fun addPhotos(photos: MarsPhotos) {
         adapter.setList(photos.photoList)
+    }
+
+    @Subscribe
+    fun onRowClicked(item: MarsItem){
+        toast("Image Url: ${item.image}")
     }
 }

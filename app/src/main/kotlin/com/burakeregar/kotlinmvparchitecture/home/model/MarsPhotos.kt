@@ -17,9 +17,9 @@ class MarsPhotos {
 class MarsItem {
     @SerializedName("img_src")
     @Expose
-    lateinit var image: String
+    var image: String? = null
 
     @SerializedName("earth_date")
     @Expose
-    lateinit var date: String
+    var date: String? = null
 }
