@@ -5,6 +5,23 @@ This repo contains demo module which retrieves mars images from the NASA API. Th
 
 I have separated activity dependencies/components from AppComponent to avoid conflicts. KotlinMvpTemplate generates all of required dependency classes, presenters etc. for each module automatically.
 
+### UPDATE
+EventBus, Stetho, LeakCanary, LoggingInterceptor, Shared Preferences Helper, Cache are added.
+
+**EventBus** for handling click events & passing your models in viewholders or activities.
+
+**Stetho** is a sophisticated debug bridge for Android applications. When enabled, developers have access to the Chrome Developer Tools 
+feature natively part of the Chrome desktop browser. You should just type browser chrome://inspect then you can watch network traffic.
+
+**LeakCanary** is a memory leak detection library for Android and Java. 
+
+**LoggingInterceptor** for watching network traffic from Android Studio's Logcat
+
+**SpHelper** for saving your models to Shared Preferences easily.
+
+**Cache** for caching your get requests for a while. (Default cache time is 1 min)
+
+
 ### STARTING NEW PROJECT
 If you start to develop new project, you can clone this repo to your computer. You just need to rename packages. Now, you are ready! You can start developing your modules.
 
