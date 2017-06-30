@@ -1,7 +1,9 @@
 package com.base.di.module
 
 import android.app.Application
+import android.content.Context
 import android.content.res.Resources
+import com.base.helper.SpHelper
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -18,15 +20,19 @@ class AppModule(val application: Application) {
 
     @Provides
     @Singleton
-    fun providesGson(): Gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create()
+    fun providesGson() = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create()
 
     @Provides
     @Singleton
-    fun providesApplication(): Application = application
+    fun providesApplication() = application
 
     @Provides
     @Singleton
-    fun providesResources(): Resources = application.resources
+    fun providesResources() = application.resources
+
+    @Provides
+    @Singleton
+    fun providesSharedPref(gson: Gson) = SpHelper(application.getSharedPreferences("Sp", Context.MODE_PRIVATE), gson)
 
 
 }

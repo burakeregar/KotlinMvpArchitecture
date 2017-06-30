@@ -8,7 +8,7 @@ android {
     buildToolsVersion "26.0.0"
     defaultConfig {
         applicationId "com.burakeregar.cleankotlinmvparchitecture"
-        minSdkVersion 13
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -43,6 +43,10 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
     compile "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+    compile "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
+
+    //Stetho
+    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 
     //GenericRecyclerAdapter
     compile 'com.github.burakeregar:EasiestGenericRecyclerAdapter:v1.5'
@@ -55,4 +59,9 @@ dependencies {
 
     //Anko
     compile 'org.jetbrains.anko:anko-commons:0.10.1'
+
+    //Memory Leak Detection
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$leakCanary"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanary"
+    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanary"
 }

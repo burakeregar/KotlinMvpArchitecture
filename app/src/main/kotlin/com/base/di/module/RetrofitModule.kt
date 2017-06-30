@@ -2,6 +2,7 @@ package com.base.di.module
 
 import dagger.Module
 import dagger.Provides
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -15,6 +16,8 @@ import javax.inject.Singleton
 class RetrofitModule {
     @Provides
     @Singleton
-    fun providesRetrofit(): Retrofit = Retrofit.Builder().baseUrl("https://api.nasa.gov/mars-photos/api/v1/")
-            .addConverterFactory(GsonConverterFactory.create()).build()
+    fun providesRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder().baseUrl("https://api.nasa.gov/mars-photos/api/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
 }
