@@ -17,14 +17,13 @@ import javax.inject.Singleton
 @Module
 class OkHttpModule {
     private fun getBaseBuilder(cache: Cache): OkHttpClient.Builder {
-        val lBuilder = OkHttpClient.Builder()
+        return OkHttpClient.Builder()
                 .addNetworkInterceptor(StethoInterceptor())
                 .cache(cache)
                 .retryOnConnectionFailure(true)
                 .connectTimeout(120, TimeUnit.SECONDS)
                 .readTimeout(120, TimeUnit.SECONDS)
                 .writeTimeout(120, TimeUnit.SECONDS)
-        return lBuilder
     }
 
     private class CachingControlInterceptor : Interceptor {
@@ -52,9 +51,8 @@ class OkHttpModule {
 
     @Provides
     @Singleton
-    fun providesOkHttpCache(pApplication: Application): Cache {
-        return Cache(pApplication.cacheDir, 10 * 1024 * 1024)
-    }
+    fun providesOkHttpCache(pApplication: Application): Cache =
+            Cache(pApplication.cacheDir, 10 * 1024 * 1024)
 
     @Provides
     @Singleton
