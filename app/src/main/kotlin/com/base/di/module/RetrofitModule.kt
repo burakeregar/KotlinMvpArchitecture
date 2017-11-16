@@ -1,5 +1,6 @@
 package com.base.di.module
 
+import com.burakeregar.kotlinmvparchitecture.BuildConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -16,7 +17,7 @@ import javax.inject.Singleton
 class RetrofitModule {
     @Provides
     @Singleton
-    fun providesRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder().baseUrl("https://api.nasa.gov/mars-photos/api/v1/")
+    fun providesRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
