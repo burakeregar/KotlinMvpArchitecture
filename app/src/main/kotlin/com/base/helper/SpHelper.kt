@@ -23,28 +23,23 @@ class SpHelper constructor(var sharedPreferences: SharedPreferences, var gson: G
 //                as String?, YourModel::class.java)
 //    }
 
-    @Synchronized fun <T> getDataFromSharedPref(dataType: Class<T>, key: String): Any? {
-        if (dataType == Int::class.java) {
-            return sharedPreferences.getInt(key, 0)
-        } else if (dataType == String::class.java) {
-            return sharedPreferences.getString(key, null)
-        } else if (dataType == Long::class.java) {
-            return sharedPreferences.getLong(key, 0)
-        } else if (dataType == Boolean::class.java) {
-            return sharedPreferences.getBoolean(key, false)
-        }
-        return null
-    }
+    @Synchronized
+    fun <T> getDataFromSharedPref(dataType: Class<T>, key: String): Any? =
+            when (dataType) {
+                Int::class.java -> sharedPreferences.getInt(key, 0)
+                String::class.java -> sharedPreferences.getString(key, null)
+                Long::class.java -> sharedPreferences.getLong(key, 0)
+                Boolean::class.java -> sharedPreferences.getBoolean(key, false)
+                else -> null
+            }
 
-    @Synchronized fun <T> putDatatoSharedPref(data: T, dataType: Class<*>, key: String) {
-        if (dataType == Int::class.java) {
-            editor.putInt(key, data as Int)
-        } else if (dataType == String::class.java) {
-            editor.putString(key, data as String)
-        } else if (dataType == Long::class.java) {
-            editor.putLong(key, data as Long)
-        } else if (dataType == Boolean::class.java) {
-            editor.putBoolean(key, data as Boolean)
+    @Synchronized
+    fun <T> putDatatoSharedPref(data: T, dataType: Class<*>, key: String) {
+        when (dataType) {
+            Int::class.java -> editor.putInt(key, data as Int)
+            String::class.java -> editor.putString(key, data as String)
+            Long::class.java -> editor.putLong(key, data as Long)
+            Boolean::class.java -> editor.putBoolean(key, data as Boolean)
         }
         editor.commit()
     }
