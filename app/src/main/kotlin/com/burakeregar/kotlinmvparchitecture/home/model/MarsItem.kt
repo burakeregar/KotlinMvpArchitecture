@@ -7,4 +7,5 @@ import com.google.gson.annotations.SerializedName
  * burakeregar@gmail.com
  * https://github.com/burakeregar
  */
-data class MarsPhotos(@SerializedName("photos") var photoList: ArrayList<MarsItem>)
+
+data class MarsItem(@SerializedName("img_src") var image: String, @SerializedName("earth_date") var date: String)
