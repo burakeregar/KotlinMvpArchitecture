@@ -6,5 +6,6 @@ package com.base.mvp
  * https://github.com/burakeregar
  */
 interface BaseView {
-
+    fun onError()
+    fun setPresenter(presenter: BasePresenter<*>)
 }

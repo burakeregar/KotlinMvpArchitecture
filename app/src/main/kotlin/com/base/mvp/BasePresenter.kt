@@ -15,6 +15,7 @@ open class BasePresenter<V : BaseView>: Presenter<V> {
     override fun attachView(view: V) {
         if (!isViewAttached) {
             weakReference = WeakReference(view)
+            view.setPresenter(this)
         }
     }
 
@@ -26,7 +27,7 @@ open class BasePresenter<V : BaseView>: Presenter<V> {
     val view: V?
         get() = weakReference?.get()
 
-    val isViewAttached: Boolean
+    private val isViewAttached: Boolean
         get() = weakReference != null && weakReference!!.get() != null
 
 
