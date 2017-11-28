@@ -1,6 +1,8 @@
 # KotlinMvpArchitecture
 Clean MVP Architecture with Dagger2 + Retrofit2 + Mockito + Fresco + EasiestGenericRecyclerAdapter + EventBus + Anko using Kotlin. 
 
+Note: If you would like to use RxJava, [you can check this repo.](https://github.com/burakeregar/KotlinRxMvpArchitecture)
+
 This repo contains demo module which retrieves mars images from the NASA API. The main purpose of the repo is to reduce the time spent on starting a new project or adding new modules to your existing project. You can add new modules with just 2-3 clicks without writing any code. I have developed an Android Studio template for it. [You can check that KotlinMvpTemplateGenerator from here.](https://github.com/burakeregar/KotlinMvpTemplateGenerator)
 
 I have separated activity dependencies/components from AppComponent to avoid conflicts. KotlinMvpTemplate generates all of required dependency classes, presenters etc. for each module automatically.
